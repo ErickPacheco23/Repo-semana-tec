@@ -7,18 +7,21 @@ from skimage import exposure
 from numpy import fliplr, flipud
 from skimage.color import rgb2hsv
 
-image = imread('imagen.jpg')
+path=input("Escribe el nombre o la ruta de la imagen a modificar")
+image = imread(path)
 
 opcion=0
-while opcion != 4:
+while opcion != 5:
     print("""
             ╔═════════════════════════════╗
             ║             MENU            ║
             ║     1. Rotar imagen         ║
             ║     2. Cambiar brillo       ║
             ║     3. Reflejar imagen      ║
-            ║     4. SALIR                ║
-            ╚═════════════════════════════╝   """)
+            ║     4. Cambiar a HSV        ║
+            ║     5. SALIR                ║
+            ╚═════════════════════════════╝
+            """)
     opcion=int(input("¿Qué quieres hacer? "))
     if opcion == 1:
         angulo = int(input("¿Cuántos grados quieres girar la imagen? "))
@@ -43,5 +46,11 @@ while opcion != 4:
         plt.title('Original')
         plt.subplot(122), imshow(new_image)
         plt.title('Imagen reflejada')
+    elif opcion==4:
+        new_image = rgb2hsv(image)
+        plt.subplot(121), imshow(image)
+        plt.title('Original')
+        plt.subplot(122), imshow(new_image)
+        plt.title('Imagen en HSV')
     plt.show()
     image=new_image
