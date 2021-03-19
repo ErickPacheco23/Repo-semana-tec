@@ -57,7 +57,7 @@ def convolution(image, kernel, average=False, verbose=True):
     return output
 
 imagen = cv2.imread('imagen.jpg', 0)
-#kernel = np.ones((3,3))
+kernel = np.ones((21,21))
 kernel = np.array([[0,-1,0],[-1,5,-1],[0,-1,0]])
 #kernel =[[0,-1,0],[-1,5,-1],[0,-1,0]]
 resultado = convolution(imagen, kernel)
