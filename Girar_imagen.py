@@ -7,8 +7,8 @@ from skimage.io import imread, imshow
 
 image = imread('imagen.jpg')
 
-image_rotated = rotate(image, angle=90, resize=True)
-#imshow(image_rotated)
+angulo = int(input("¿Cuántos grados quieres girar la imagen? "))
+image_rotated = rotate(image, angle=angulo, resize=True)
 
 plt.subplot(121), imshow(image)
 plt.title('Imagen')
