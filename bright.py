@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from skimage import exposure
 
 image = imread('noche.jpg')
-image_bright = exposure.adjust_gamma(image, gamma=0.4,gain=1)
+image_bright = exposure.adjust_gamma(image, gamma=0.6,gain=2)
 
 plt.subplot(121), imshow(image)
 plt.title('Original')
